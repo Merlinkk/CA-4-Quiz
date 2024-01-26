@@ -1,0 +1,87 @@
+:root {
+  --yellow: #F6C744;
+  --duration: 6s;
+  --load-duration: 1s;
+  --length: 308;
+}
+
+.sun {
+  background-color: var(--yellow);
+  height: 50vmin;
+  width: 50vmin;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.sun:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: thats-no-moon var(--duration) infinite, night-and-day var(--duration) infinite;
+}
+
+@keyframes thats-no-moon {
+  from, 5% {
+    transform: translateX(100%);
+  }
+  30%, 60% {
+    transform: none;
+  }
+  95%, to {
+    transform: translateX(-100%);
+  }
+}
+
+body {
+  animation: night-and-day var(--duration) infinite;
+}
+
+.eclipse {
+  fill: none;
+  stroke: var(--yellow);
+  stroke-width: 2;
+  stroke-dasharray: var(--length) calc(var(--length) * 2);
+  stroke-dashoffset: var(--length);
+  stroke-linecap: round;
+  animation: eclipse-reveal var(--duration) cubic-bezier(.75,.02,.18,.98) infinite;
+}
+
+@keyframes eclipse-reveal {
+  0%, 30% {
+    stroke-dashoffset: calc(-1 * var(--length));
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  60%, 100% {
+    stroke-dashoffset: var(--length);
+  }
+}
+
+@keyframes night-and-day {
+  from, 5%, 95%, to {
+    background-color: white;
+  }
+  45%, 55% {
+    background-color: black;
+  }
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+*, *:before {
+  box-sizing: border-box;
+  position: relative;
+}
