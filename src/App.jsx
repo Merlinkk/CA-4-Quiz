@@ -107,6 +107,8 @@ function App() {
 
 
       <div className='rootContainer' id={theme}> 
+      {quiz || result ? <img className='logopngQ' src="/logoai.png" alt="" /> : null}
+
       <SunAnimation />
       <DarkModeToggle 
       id='darkModeToggle'

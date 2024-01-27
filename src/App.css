@@ -156,6 +156,7 @@ margin: 40px;
 
 .quizBox p{
   padding: 20px;
+  font-size: 20px;
   color: black;
   align-self: flex-end;
 }
@@ -180,6 +181,19 @@ margin: 40px;
   margin: auto;
   width: 100%;
   /* margin-bottom: auto; */
+}
+
+.pretty{
+  font-size: 20px;
+}
+
+
+
+.logopngQ{
+  position: absolute;
+  top: 0px;
+  margin: 10px;
+  left: 1px;
 }
 
 .options div{
