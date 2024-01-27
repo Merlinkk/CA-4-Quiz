@@ -129,7 +129,7 @@ margin: 40px;
   /* border-left: 5px solid rgb(190,190,245); */
   height: 70vh;
   border-radius: 20px;
-  width: 70vw;
+  width: 80vw;
   text-align: initial;
   display: flex;
   justify-content: flex-start;
@@ -156,12 +156,15 @@ margin: 40px;
 
 .quizBox p{
   padding: 20px;
-  color: white;
+  color: black;
   align-self: flex-end;
 }
 
 #light .quizBox p{
   color: black;
+}
+#dark .quizBox p{
+  color: white;
 }
 
 .quizBox h1{
@@ -194,6 +197,12 @@ margin: 40px;
 #light .choices:hover, #null .choices:hover{
   scale: 1.1;
   background-color: black;
+}
+
+#dark .choices:hover{
+  scale: 1.1;
+  background-color: white;
+  color: black;
 }
 
 .controls div{
