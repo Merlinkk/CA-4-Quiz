@@ -1,87 +1,180 @@
 :root {
-  --yellow: #F6C744;
-  --duration: 6s;
-  --load-duration: 1s;
-  --length: 308;
-}
+    --yellow: #FEBBCC;
+    --duration: 6s;
+    --load-duration: 1s;
+    --length: 308;
+    --day:#FFEECC;
+    --night: #272829;
+    --moon : #FFF6E0;
+  }
+  
+ .sun {
+    background-color: var(--yellow);
+    height: 50vmin;
+    width: 50vmin;
+    border-radius: 50%;
+    position: absolute;
+    top: 25vh;
+  }
 
-.sun {
-  background-color: var(--yellow);
-  height: 50vmin;
-  width: 50vmin;
-  border-radius: 50%;
-  position: absolute;
-}
+  html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  *, *:before {
+    box-sizing: border-box;
+    position: relative;
+  }
 
 .sun:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  border-radius: 50%;
-  animation: thats-no-moon var(--duration) infinite, night-and-day var(--duration) infinite;
-}
-
-@keyframes thats-no-moon {
-  from, 5% {
-    transform: translateX(100%);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 50%;
   }
-  30%, 60% {
-    transform: none;
-  }
-  95%, to {
-    transform: translateX(-100%);
-  }
-}
 
-body {
-  animation: night-and-day var(--duration) infinite;
-}
+  #null .sun:before{
+    display: none;
+  }
+  
+  #dark .sun:before {
+    animation: sun-to-moon 3s forwards, day-to-night var(--duration) forwards;
+  }
 
+  #dark .sun{
+    /* background: url("https://raw.githubusercontent.com/interaminense/repository-codepen/master/wolf/imgs/bgMoon.png"); */
+    background-size: contain;
+    /* background-color: #FFD453; */
+    background-color: var(--moon);
+    transition: background-color 1s ease;
+  }
+
+  #light .sun{
+    background-color: var(--yellow);
+    transition: background-color 1s ease;
+  }
+  
+  .rootContainer#dark {
+    animation: day-to-night var(--duration) forwards;
+    background-repeat: no-repeat;
+    background-size:cover;
+  }
+  
 .eclipse {
-  fill: none;
-  stroke: var(--yellow);
-  stroke-width: 2;
-  stroke-dasharray: var(--length) calc(var(--length) * 2);
-  stroke-dashoffset: var(--length);
-  stroke-linecap: round;
-  animation: eclipse-reveal var(--duration) cubic-bezier(.75,.02,.18,.98) infinite;
-}
-
-@keyframes eclipse-reveal {
-  0%, 30% {
-    stroke-dashoffset: calc(-1 * var(--length));
-  }
-  50% {
-    stroke-dashoffset: 0;
-  }
-  60%, 100% {
+    fill: none;
+    stroke: whitesmoke;
+    stroke-width: 2;
+    stroke-dasharray: var(--length) calc(var(--length) * 2);
     stroke-dashoffset: var(--length);
+    stroke-linecap: round;
   }
-}
-
-@keyframes night-and-day {
-  from, 5%, 95%, to {
-    background-color: white;
+  
+  #dark .eclipse {
+    fill: none;
+    animation: eclipse-reveal 3s cubic-bezier(.75,.02,.18,.98) forwards;
   }
-  45%, 55% {
-    background-color: black;
+  
+
+  :root{
+    --varDur:5s
   }
-}
+  
 
-html, body {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
+  #light .sun:before {
+    animation: moon-to-sun var(--varDur) forwards, night-to-day var(--duration) forwards;
+  }
 
-*, *:before {
-  box-sizing: border-box;
-  position: relative;
-}
+  .rootContainer#light {
+    animation: night-to-day var(--duration) forwards;
+    background-repeat: no-repeat;
+  background-size:cover;
+  }
+  
+  #light .eclipse {
+    animation: eclipse-reverse var(--duration) cubic-bezier(.75,.02,.18,.98) forwards;
+  }
+
+/* dark mode ? */
+@keyframes sun-to-moon {
+    from, 5% {
+      transform: translateY(100%);
+    }
+    30%, 100% {
+      transform: translate(0%);
+    }
+    95%, to {
+        transform: translateX(-25%);
+    }
+  }
+
+
+
+  @keyframes eclipse-reveal {
+    0%, 50% {
+        stroke-dashoffset: var(--length);
+      }
+      50%,99% {
+        stroke-dashoffset: 0;
+      }
+      99%,100% {
+        stroke-width: 0;
+      }
+      /* 100%,0% {
+        stroke-dashoffset: var(--length);
+      } */
+  }
+  
+  @keyframes day-to-night {
+    from, 5%, 45% {
+      background: var(--day);
+    }
+    45%, 100% {
+      background: var(--night);
+    }
+  }
+
+
+
+/* light mode down */
+
+
+  @keyframes moon-to-sun {
+    from, 5% {
+        transform: translateX(-25%);
+    }
+    30%, 65% {
+        transform: translate(0%);
+    }
+    65%, 100% {
+          transform: translateY(100%);
+      }
+  }
+
+  @keyframes eclipse-reverse {
+    0%, 30% {
+        stroke: var(--yellow);
+        stroke-dashoffset: var(--length);
+    }
+    30%,100% {
+        stroke: var(--yellow);
+          stroke-dashoffset: 0;
+      }
+  }
+
+  @keyframes night-to-day {
+    from, 5%, 45% {
+      background-color: var(--night);
+    }
+    45%, 100% {
+      background: var(--day) ; 
+    }
+  }

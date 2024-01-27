@@ -6,7 +6,8 @@ function HomeComponent({toggle}) {
   return (
     <>
     <div className='container'>
-      <h1 className='quizHeading'>Quiz App</h1>
+      <h1 className='quizHeading'>QuizWizz</h1>
+      {/* <img className='logopng' src="/logo-text.png" alt="" /> */}
       <button onClick={toggle} className='playButton'>Play</button>
     </div>
     </>

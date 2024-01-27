@@ -6,9 +6,9 @@ function QuizComponent({currentQuestion,QuizData,next,quit,checkAnswer,highlight
   return (
     <div className='quizContainer'>
     <div className='quizBox'>
-        <h1>Question</h1>
+        {/* <h1>Question</h1> */}
         <p>{currentQuestion + 1} of 5</p>
-        <h3 className={highlight ? 'red' : 'null' } >{QuizData["text"]}</h3>
+        <h1 className={highlight ? 'red' : 'null' } >{QuizData["text"]}</h1>
 
         <div className='options'>
             {/* <div onClick={(e) => {checkAnswer(QuizData)}} className="choices">{QuizData.options[0]}</div>
@@ -23,15 +23,15 @@ function QuizComponent({currentQuestion,QuizData,next,quit,checkAnswer,highlight
 
         </div>
 
-        <div className='controls'>
-            {/* <div onClick={previous} className="controlButtons previous">previous</div> */}
+        {/* <div className='controls'>
+            <div onClick={previous} className="controlButtons previous">previous</div>
             <div onClick={next} className="controlButtons next">next</div>
             <div onClick={quit} className="controlButtons quit">quit</div>
-        </div>
+        </div> */}
         <div className="pretty p-switch p-round p-thick">
               <input onChange={highlightToggle} type="checkbox" />
               <div className="state p-danger">
-                <label>Highlight</label>
+                <label>Highlight Text</label>
               </div>
             </div>
 

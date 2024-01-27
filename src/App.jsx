@@ -20,20 +20,20 @@ function App() {
   const [currentQuestion , setIndex] = useState(0)
   const [attempted, setAttempt] = useState(0)
 
-  const [theme, setTheme] = useState('light') 
+  const [theme, setTheme] = useState('null') 
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const [highlight, setHighlight] = useState(false)
 
   function highlightToggle(){
-    // console.log(highlight);
+    console.log(highlight);
     setHighlight(!highlight)
   }
 
   function toggleTheme() {
     console.log("togglingTheme");
     setTimeout(() => {
-      setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+      setTheme((prevTheme) => (prevTheme === "null" ? "dark" : prevTheme === "dark" ? "light" : "dark"));
     setIsDarkMode((prevIsDarkMode) => !prevIsDarkMode);
     }, 350);
   }
@@ -101,8 +101,11 @@ function App() {
   
   return (
     <>
+
+
     <ThemeContext.Provider value={{theme, toggleTheme}}>
 
+    {/* <img className='logopng' src="/logo.png" alt="" /> */}
 
       <div className='rootContainer' id={theme}> 
       <SunAnimation />
@@ -130,7 +133,7 @@ function App() {
         QuizReset={quizReset}
         PlayAgain={playAgain}
         />: null}
-      </div>
+      </div> 
     </ThemeContext.Provider>
 </>
   )
