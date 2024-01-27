@@ -7,7 +7,7 @@ function ResultComponent({Result,Attempted,QuizReset,PlayAgain}) {
     <div className='resultContainer'>
         <div className='quizBox result'>
         {/* <h1 className='headingResult'>Check out the result!</h1> */}
-            <img className='logopngR' src="/logoai.png" alt="" />
+            {/* <img className='logopngR' src="/logoai.png" alt="" /> */}
 
             <h2 >{Result === 5 ? "Excellent" : "You need more practice!"}</h2>
             <h2 >You got {Result}/5 Questions right</h2>
