@@ -105,7 +105,6 @@ function App() {
 
     <ThemeContext.Provider value={{theme, toggleTheme}}>
 
-    {/* <img className='logopng' src="/logo.png" alt="" /> */}
 
       <div className='rootContainer' id={theme}> 
       <SunAnimation />

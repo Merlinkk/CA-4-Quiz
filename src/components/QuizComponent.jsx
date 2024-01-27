@@ -6,6 +6,8 @@ function QuizComponent({currentQuestion,QuizData,next,quit,checkAnswer,highlight
   return (
     <div className='quizContainer'>
     <div className='quizBox'>
+    <img className='logopng' src="/logoai.png" alt="" />
+
         {/* <h1>Question</h1> */}
         <p>{currentQuestion + 1} of 5</p>
         <h1 className={highlight ? 'red' : 'null' } >{QuizData["text"]}</h1>
