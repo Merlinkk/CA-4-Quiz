@@ -312,8 +312,21 @@ margin: 40px;
   padding: 10px;
 }
 
+#headerLogo{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 @media (max-width:500px) and (max-height: 1000px){
+  .logopngR{
+    padding: 10px;
+  }
+  .logopngQ{
+    display: none;
+  }
   .logopng{
     height: 70px;
   }

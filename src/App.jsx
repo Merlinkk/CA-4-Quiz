@@ -107,15 +107,19 @@ function App() {
 
 
       <div className='rootContainer' id={theme}> 
-      {quiz || result ? <img className='logopngQ' src="/logoai.png" alt="" /> : null}
+      {/* {home ||quiz || result ? <img className='logopngQ' src="/logoai.png" alt="" /> : null} */}
 
       <SunAnimation />
+      <div id='headerLogo'>
+      <img className='logopng' src="/logoai.png" alt="" />
       <DarkModeToggle 
       id='darkModeToggle'
       className='darkModeToggle'
         onChange={toggleTheme} 
         isDarkMode={isDarkMode} 
       />
+      </div>
+
         {home ? <HomeComponent toggle={toggleStartQuiz} />: null}
         {quiz ? <QuizComponent 
         currentQuestion = {currentQuestion}

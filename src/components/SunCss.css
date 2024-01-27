@@ -1,5 +1,5 @@
 :root {
-    --yellow: #FEBBCC;
+    --yellow: #ffc81d;
     --duration: 6s;
     --load-duration: 1s;
     --length: 308;
@@ -206,6 +206,9 @@
 
 
   @media only screen and (min-width:769px) {
+    .logopngR{
+      display: none;
+    }
     #dark .sun{
     animation: moon-to-right 3s forwards;
     }
